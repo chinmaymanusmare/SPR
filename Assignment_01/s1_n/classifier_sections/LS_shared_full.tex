@@ -1,0 +1,71 @@
+\subsection{Classifier: Shared Full Covariance $\Sigma$}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.75\linewidth]{images/LS_Group04_images/02_shared_full/01_confusion_matrix.png}
+%     \caption{Confusion Matrix for Shared Full Covariance $\Sigma$ (Linearly Separable Data)}
+% \end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Confusion Matrix for Shared Full Covariance $\Sigma$ (Linearly Separable Data)}
+\label{tab:confmat_LSD_Shared_Full_Covariance_$\Sigma$}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Actual $\backslash$ Predicted} & \textbf{Class 1} & \textbf{Class 2} & \textbf{Class 3} \\
+\hline
+\textbf{Class 1} & 149 & 0   & 1   \\
+\textbf{Class 2} & 0  & 150 & 0   \\
+\textbf{Class 3} & 0   & 0   & 150 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{Performance Metrics - Shared Full Covariance}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Support} \\
+\midrule
+Class 1 & 1.0000 & 1.0000 & 1.0000 & 125 \\
+Class 2 & 1.0000 & 1.0000 & 1.0000 & 125 \\
+Class 3 & 1.0000 & 1.0000 & 1.0000 & 125 \\
+\midrule
+\textbf{Accuracy} & \multicolumn{4}{c}{1.0000} \\
+\textbf{Mean Precision} & \multicolumn{4}{c}{1.0000} \\
+\textbf{Mean Recall} & \multicolumn{4}{c}{1.0000} \\
+\textbf{Mean F1 Score} & \multicolumn{4}{c}{1.0000} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Inferences:} Using a shared full covariance matrix captures class correlations perfectly, still yielding ideal classification on this simple dataset.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/LS_Group04_images/02_shared_full/05_decision_region_all.png}
+    \caption{Decision Region Plot (All Classes) - Shared Full Covariance}
+\end{figure}
+
+\subsubsection{Decision Region Plots Between Class Pairs (LS Dataset, Shared Full Covariance)}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth]{images/LS_Group04_images/02_shared_full/02_decision_region_c1_c2.png}
+        \caption*{Class 1 vs Class 2}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth]{images/LS_Group04_images/02_shared_full/03_decision_region_c1_c3.png}
+        \caption*{Class 1 vs Class 3}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth]{images/LS_Group04_images/02_shared_full/04_decision_region_c2_c3.png}
+        \caption*{Class 2 vs Class 3}
+    \end{minipage}
+    \caption{Decision Region Plots (Training data points superimposed) between class pairs for Shared Full Covariance on LS dataset}
+\end{figure}

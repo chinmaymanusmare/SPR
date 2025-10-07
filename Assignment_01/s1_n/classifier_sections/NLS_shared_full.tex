@@ -1,0 +1,72 @@
+\subsection{Classifier: Shared Full Covariance $\Sigma$}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.75\linewidth]{images/NLS_Group04_images/02_shared_full/01_confusion_matrix.png}
+%     \caption{Confusion Matrix for Shared Full Covariance $\Sigma$ (Non-Linearly Separable Data)}
+% \end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Confusion Matrix for Shared Full Covariance $\Sigma$ (Non-Linearly Separable Data)}
+\label{tab:confmat_d3_sigma2I}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Actual $\backslash$ Predicted} & \textbf{Class 1} & \textbf{Class 2} & \textbf{Class 3} \\
+\hline
+\textbf{Class 1} & 0 & 0   & 90   \\
+\textbf{Class 2} & 0  & 0 & 150   \\
+\textbf{Class 3} & 0   & 75   & 225 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{Performance Metrics - Shared Full Covariance}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Support} \\
+\midrule
+Class 1 & 0.84 & 0.82 & 0.83 & 125 \\
+Class 2 & 0.78 & 0.75 & 0.76 & 125 \\
+Class 3 & 0.79 & 0.83 & 0.81 & 125 \\
+\midrule
+\textbf{Accuracy} & \multicolumn{4}{c}{0.80} \\
+\textbf{Mean Precision} & \multicolumn{4}{c}{0.80} \\
+\textbf{Mean Recall} & \multicolumn{4}{c}{0.80} \\
+\textbf{Mean F1 Score} & \multicolumn{4}{c}{0.80} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Inferences:}  
+Shared full covariance allows elliptical decision boundaries that better fit data spread, improving classification compared to $\sigma^2 I$. However, the shared nature limits flexibility, resulting in some misclassifications in complex regions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/NLS_Group04_images/02_shared_full/05_decision_region_all.png}
+    \caption{Decision Region Plot (All Classes) - Shared Full Covariance}
+\end{figure}
+
+\subsubsection{Decision Region Plots Between Class Pairs (NLS Dataset, Shared Full Covariance)}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth]{images/NLS_Group04_images/02_shared_full/02_decision_region_c1_c2.png}
+        \caption*{Class 1 vs Class 2}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth]{images/NLS_Group04_images/02_shared_full/03_decision_region_c1_c3.png}
+        \caption*{Class 1 vs Class 3}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth]{images/NLS_Group04_images/02_shared_full/04_decision_region_c2_c3.png}
+        \caption*{Class 2 vs Class 3}
+    \end{minipage}
+    \caption{Decision Region Plots (Training data points superimposed) between class pairs for Shared Full Covariance on NLS dataset}
+\end{figure}

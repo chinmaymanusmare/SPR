@@ -1,0 +1,174 @@
+\documentclass[12pt,a4paper]{article}
+
+% Packages
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+
+\geometry{margin=1in}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=black,
+    citecolor=black
+}
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Group 04}
+\lhead{SPR Assignment 1}
+\rfoot{Page \thepage}
+
+% Title
+\title{\textbf{CS503T: Statistical Pattern Recognition\\
+Programming Assignment I}\\
+\vspace{0.5cm}
+}
+\author{
+    Group 04\\[0.5cm]
+    \text{Ashish Pawade (CS25MT002)} \\
+    \text{Chinmay Rajesh Manusmare (CS25MT014)} \\
+    \vspace{0.5cm}
+    \\
+    \text{Under the guidance of Prof. Dilip A D}
+}
+
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+This report presents the implementation and evaluation of a Bayes classifier under different covariance assumptions for three datasets:
+\begin{itemize}
+    \item Dataset 1: Linearly separable data (3 classes, 2D)
+    \item Dataset 2: Nonlinearly separable data (3 classes, 2D)
+    \item Dataset 3: Real-world vowel dataset (3 classes, 2D)
+\end{itemize}
+
+The class-conditional densities are assumed to be Gaussian. For each dataset, we evaluate the classifier under the following covariance models:
+
+\begin{enumerate}
+    \item Shared spherical: $\sigma^2 I$
+    \item Shared full: $\Sigma$
+    \item Diagonal per-class
+    \item Full per-class
+\end{enumerate}
+
+We analyze the classification performance through metrics and visualization.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dataset 1: Linearly Separable Data}
+
+\subsection{Training Data}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/LS_Group04_images/01_training data_scatter.png}
+    \caption{Scatter plot of training data for linearly separable dataset}
+\end{figure}
+
+\subsection{Constant Density Contour Plot}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/LS_Group04_images/02_constant_density_contour.png}
+    \caption{Constant density contours for all classes}
+\end{figure}
+
+% === Loop through classifiers
+\input{classifier_sections/LS_sigma2I.tex}
+\input{classifier_sections/LS_shared_full.tex}
+\input{classifier_sections/LS_diag.tex}
+\input{classifier_sections/LS_full.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dataset 2: Nonlinearly Separable Data}
+\subsection{Training Data}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/NLS_Group04_images/01_training data_scatter.png}
+    \caption{Scatter plot of training data for nonlinear dataset}
+\end{figure}
+
+\subsection{Constant Density Contour Plot}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/NLS_Group04_images/02_constant_density_contour.png}
+    \caption{Constant density contours for all classes}
+\end{figure}
+
+\input{classifier_sections/NLS_sigma2I.tex}
+\input{classifier_sections/NLS_shared_full.tex}
+\input{classifier_sections/NLS_diag.tex}
+\input{classifier_sections/NLS_full.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dataset 3: Real-world Vowel Data}
+\subsection{Training Data}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/RD_Group04_images/01_training data_scatter.png}
+    \caption{Scatter plot of training data for vowel dataset}
+\end{figure}
+
+\subsection{Constant Density Contour Plot}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/RD_Group04_images/02_constant_density_contour.png}
+    \caption{Constant density contours for vowel dataset}
+\end{figure}
+
+\input{classifier_sections/RD_sigma2I.tex}
+\input{classifier_sections/RD_shared_full.tex}
+\input{classifier_sections/RD_diag.tex}
+\input{classifier_sections/RD_full.tex}
+
+\input{dataset_comparison.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Covariance Comparison}
+
+\begin{table}[H]
+\centering
+\caption{Comparison of Mean F1 Scores Across Covariance Types}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Covariance Type} & \textbf{Linear Dataset} & \textbf{Nonlinear Dataset} & \textbf{Vowel Dataset} \\
+\midrule
+Shared $\sigma^2 I$     & 0.9956 & 0.1961 & 0.9890 \\
+Shared $\Sigma$         & 0.9978 & 0.1961 & 0.9880 \\
+Diagonal Per Class      & 0.9956 & 0.9848 & 0.9895 \\
+Full Per Class          & 1.0000 & 0.9865 & 0.9890 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Observations:}
+\begin{itemize}
+    \item Diagonal and full covariance models perform significantly better on nonlinear and real-world datasets.
+    \item Spherical and shared models fail on nonlinear data due to poor fit.
+    \item Linearly separable dataset is handled well by all classifiers.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+
+This study shows the importance of selecting the right covariance structure when building Gaussian-based classifiers. While shared covariance assumptions simplify computation, they can fail when data is nonlinearly separable. Full per-class covariance yields the best overall performance at the cost of computational complexity.
+
+\end{document}

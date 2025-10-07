@@ -1,0 +1,71 @@
+\subsection{Classifier: Full Covariance (Per-Class)}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.75\linewidth]{images/LS_Group04_images/04_full_per_class/01_confusion_matrix.png}
+%     \caption{Confusion Matrix for Full Covariance (Per-Class) (Linearly Separable Data)}
+% \end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Confusion Matrix for Full Covariance (Per-Class) (Linearly Separable Data)}
+\label{tab:confmat_d3_sigma2I}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Actual $\backslash$ Predicted} & \textbf{Class 1} & \textbf{Class 2} & \textbf{Class 3} \\
+\hline
+\textbf{Class 1} & 150 & 0   & 0   \\
+\textbf{Class 2} & 0  & 150 & 0   \\
+\textbf{Class 3} & 0   & 0   & 150 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{Performance Metrics - Full Covariance (Per-Class)}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Support} \\
+\midrule
+Class 1 & 1.0000 & 1.0000 & 1.0000 & 125 \\
+Class 2 & 1.0000 & 1.0000 & 1.0000 & 125 \\
+Class 3 & 1.0000 & 1.0000 & 1.0000 & 125 \\
+\midrule
+\textbf{Accuracy} & \multicolumn{4}{c}{1.0000} \\
+\textbf{Mean Precision} & \multicolumn{4}{c}{1.0000} \\
+\textbf{Mean Recall} & \multicolumn{4}{c}{1.0000} \\
+\textbf{Mean F1 Score} & \multicolumn{4}{c}{1.0000} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Inferences:} Full covariance per class fully captures data spread and shape, leading to perfect classification.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{images/LS_Group04_images/04_full_per_class/05_decision_region_all.png}
+    \caption{Decision Region Plot (All Classes) - Full Covariance (Per-Class)}
+\end{figure}
+
+\subsubsection{Decision Region Plots Between Class Pairs (LS Dataset, Full Covariance (Per-Class)}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth]{images/LS_Group04_images/04_full_per_class/02_decision_region_c1_c2.png}
+        \caption*{Class 1 vs Class 2}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth]{images/LS_Group04_images/04_full_per_class/03_decision_region_c1_c3.png}
+        \caption*{Class 1 vs Class 3}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth]{images/LS_Group04_images/04_full_per_class/04_decision_region_c2_c3.png}
+        \caption*{Class 2 vs Class 3}
+    \end{minipage}
+    \caption{Decision Region Plots (Training data points superimposed) between class pairs for Full Covariance (Per-Class) on LS dataset}
+\end{figure}

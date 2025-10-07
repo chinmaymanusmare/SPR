@@ -1,0 +1,43 @@
+\section{Comparison Across Datasets}
+
+\subsection{Performance Metrics Summary}
+
+\begin{table}[H]
+\centering
+\caption{Performance Metrics (Precision, Recall, F1 Score, Accuracy) for each classifier across datasets}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Dataset} & \textbf{Classifier} & \textbf{Precision} & \textbf{Recall} & \textbf{F1 Score} & \textbf{Accuracy} \\
+\hline
+\multirow{4}{*}{Dataset 1 (Linear)} 
+& sigma2I        & 0.9956 & 0.9956 & 0.9956 & 0.9956 \\
+& shared\_full   & 0.9978 & 0.9978 & 0.9978 & 0.9978 \\
+& diag\_per\_class & 0.9956 & 0.9956 & 0.9956 & 0.9956 \\
+& full\_per\_class & 1.0000 & 1.0000 & 1.0000 & 1.0000 \\
+\hline
+\multirow{4}{*}{Dataset 2 (Nonlinear)} 
+& sigma2I        & 0.1613 & 0.2500 & 0.1961 & 0.4167 \\
+& shared\_full   & 0.1613 & 0.2500 & 0.1961 & 0.4167 \\
+& diag\_per\_class & 0.9903 & 0.9800 & 0.9848 & 0.9833 \\
+& full\_per\_class & 0.9913 & 0.9822 & 0.9865 & 0.9852 \\
+\hline
+\multirow{4}{*}{Dataset 3 (Real-world)} 
+& sigma2I        & 0.9897 & 0.9884 & 0.9890 & 0.9891 \\
+& shared\_full   & 0.9887 & 0.9875 & 0.9880 & 0.9882 \\
+& diag\_per\_class & 0.9902 & 0.9889 & 0.9895 & 0.9896 \\
+& full\_per\_class & 0.9897 & 0.9884 & 0.9890 & 0.9891 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Observations and Inferences}
+
+\begin{itemize}
+    \item \textbf{Dataset 1 (Linearly separable):} All classifiers perform extremely well, with full covariance per class achieving perfect accuracy. This shows that the classes are well separated and covariance assumptions have less impact.
+    \item \textbf{Dataset 2 (Nonlinear classes):} Classifiers with simplistic covariance assumptions (sigma2I, shared full) perform poorly (accuracy ~42\%), failing to capture complex boundaries. Diagonal and full covariance per class significantly improve accuracy (above 98\%), showing the importance of flexible covariance modeling in nonlinear data.
+    \item \textbf{Dataset 3 (Real-world vowel data):} All classifiers perform very well (~99\% accuracy). Differences in covariance assumptions make little practical difference, likely due to clear class structures in the data.
+    \item \textbf{Decision surfaces:} Covariance matrix assumptions shape the decision boundaries. Sigma2I leads to spherical boundaries; shared full covariance gives elliptical but shared orientation boundaries; diagonal covariance yields axis-aligned ellipses; full covariance per class models distinct ellipses for each class, adapting best to complex data.
+    \item \textbf{Confusion matrices:} Misclassifications mainly occur between adjacent or similar classes, highlighting areas for potential model improvement or feature enhancement.
+\end{itemize}

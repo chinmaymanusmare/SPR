@@ -1,0 +1,70 @@
+\subsection{Classifier: Shared Full Covariance $\Sigma$}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.75\linewidth]{images/RD_Group04_images/02_shared_full/01_confusion_matrix.png}
+%     \caption{Confusion Matrix for Shared Full Covariance $\Sigma$ (Vowel Data)}
+% \end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Confusion Matrix for Shared Full Covariance $\Sigma$ (Vowel Data)}
+\label{tab:confmat_d3_sigma2I}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Actual $\backslash$ Predicted} & \textbf{Class 1} & \textbf{Class 2} & \textbf{Class 3} \\
+\hline
+\textbf{Class 1} & 746 & 1   & 0   \\
+\textbf{Class 2} & 19  & 631 & 0   \\
+\textbf{Class 3} & 1   & 4   & 712 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Performance Metrics - Shared $\Sigma$}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Support} \\
+\midrule
+Class 1 & 0.9739 & 0.9987 & 0.9861 & 747 \\
+Class 2 & 0.9921 & 0.9708 & 0.9813 & 650 \\
+Class 3 & 1.0000 & 0.9930 & 0.9965 & 717 \\
+\midrule
+\textbf{Accuracy} & \multicolumn{4}{c}{0.9882} \\
+\textbf{Mean Precision} & \multicolumn{4}{c}{0.9887} \\
+\textbf{Mean Recall} & \multicolumn{4}{c}{0.9875} \\
+\textbf{Mean F1 Score} & \multicolumn{4}{c}{0.9880} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Inferences:} The shared full covariance captures correlations better than $\sigma^2 I$. Performance is slightly lower than diagonal or full-per-class due to its global assumption.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\linewidth]{images/RD_Group04_images/02_shared_full/05_decision_region_all.png}
+    \caption{Decision Region Plot (All Classes) - Shared Full Covariance}
+\end{figure}
+
+\subsubsection{Decision Region Plots Between Class Pairs (RD Dataset, Shared Full Covariance)}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth]{images/RD_Group04_images/02_shared_full/02_decision_region_c1_c2.png}
+        \caption*{Class 1 vs Class 2}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth]{images/RD_Group04_images/02_shared_full/03_decision_region_c1_c3.png}
+        \caption*{Class 1 vs Class 3}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth]{images/RD_Group04_images/02_shared_full/04_decision_region_c2_c3.png}
+        \caption*{Class 2 vs Class 3}
+    \end{minipage}
+    \caption{Decision Region Plots (Training data points superimposed) between class pairs for Shared Full Covariance on RD dataset}
+\end{figure}

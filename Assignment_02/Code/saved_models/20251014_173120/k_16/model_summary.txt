@@ -1,0 +1,22 @@
+GMM-Based Bayes Classifier Model Summary
+========================================
+
+Number of Components: 16
+Number of Classes: 3
+Classes: ['atrium_public', 'general_store_outdoor', 'observatory_outdoor']
+Feature Dimensions: 32
+Training Samples: 150
+Test Samples: 150
+
+Performance Metrics:
+- Accuracy: 0.3333
+- Mean Precision: 0.1111
+- Mean Recall: 0.3333
+- Mean F1-Score: 0.1667
+
+Model Selection Scores:
+- Log-Likelihood: 19829.4522
+Per-Class Performance:
+- Class atrium_public: Precision=0.0000, Recall=0.0000, F1=0.0000
+- Class general_store_outdoor: Precision=0.0000, Recall=0.0000, F1=0.0000
+- Class observatory_outdoor: Precision=0.3333, Recall=1.0000, F1=0.5000

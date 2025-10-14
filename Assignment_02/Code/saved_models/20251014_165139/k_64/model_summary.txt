@@ -1,0 +1,22 @@
+GMM-Based Bayes Classifier Model Summary
+========================================
+
+Number of Components: 64
+Number of Classes: 3
+Classes: [0, 1, 2]
+Feature Dimensions: 2
+Training Samples: 1260
+Test Samples: 540
+
+Performance Metrics:
+- Accuracy: 1.0000
+- Mean Precision: 1.0000
+- Mean Recall: 1.0000
+- Mean F1-Score: 1.0000
+
+Model Selection Scores:
+- Log-Likelihood: -2270.9553
+Per-Class Performance:
+- Class 0: Precision=1.0000, Recall=1.0000, F1=1.0000
+- Class 1: Precision=1.0000, Recall=1.0000, F1=1.0000
+- Class 2: Precision=1.0000, Recall=1.0000, F1=1.0000

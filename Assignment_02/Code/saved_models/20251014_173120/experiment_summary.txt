@@ -1,0 +1,22 @@
+GMM Experiment Summary
+==================================================
+
+Experiment Date: 2025-10-14T17:32:01.488213
+Base Directory: saved_models\20251014_173120
+Component Options: [2, 4, 8, 16, 32, 64]
+
+Dataset Information:
+- Training Samples: 150
+- Test Samples: 150
+- Features: 32
+- Classes: 3
+
+Model Performance Summary:
+Components   Accuracy   Mean F1    
+------------------------------------------------------------
+2            0.5267     0.4388    
+4            0.3200     0.2012    
+8            0.3333     0.1667    
+16           0.3333     0.1667    
+32           0.2933     0.1855    
+64           0.2533     0.1702    
